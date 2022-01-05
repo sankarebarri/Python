@@ -1,6 +1,15 @@
 
 def consecutiveAlphabet(s):
-    pass
+    '''
+    '''
+    longest = s[0]
+    current = s[0]
+    for c in s[1:]:
+        if c >= current[-1]:
+            current += c
+        else:
+            current = c
+    return longest
 
 
 def main():
