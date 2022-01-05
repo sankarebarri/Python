@@ -7,6 +7,8 @@ def consecutiveAlphabet(s):
     for c in s[1:]:
         if c >= current[-1]:
             current += c
+            if len(current) > len(longest):
+                longest = current
         else:
             current = c
     return longest
