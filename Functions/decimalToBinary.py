@@ -13,3 +13,6 @@ def decimalToBinary(num):
     if isNegative:
         bin_num = '-'+bin_num
     return bin_num
+
+def decimalFractionToDecimal(num):
+    pass
