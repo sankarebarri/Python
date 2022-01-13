@@ -13,12 +13,3 @@ def decimalToBinary(num):
     if isNegative:
         bin_num = '-'+bin_num
     return bin_num
-
-def decimalFractionToDecimal(num):
-    while num != 0:
-        r = num % 2
-        num = num // 2
-        bin_num = str(r) + bin_num
-    if isNegative:
-        bin_num = '-'+bin_num
-    return bin_num
