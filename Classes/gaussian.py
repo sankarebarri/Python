@@ -44,6 +44,16 @@ class Gaussian:
         self.data = data_list
         self.mean = self.calculate_mean()
         self.stdev = self.calculate_stdev(sample=True)
+
+    def __add__(self, other):
+        results = Gaussian()
+        results.mean = self.mean + other.mean
+        results.stdev = math.sqrt(self.stdev**2 + other.stdev**2)
+        
+        return results
+        
+    def __repr__(self):
+        return f'mean is {self.mean}, stdev is {self.stdev}'
         
     
 data = [9, 2, 5, 4, 12, 7]
@@ -52,4 +62,10 @@ gaussian = Gaussian()
 gaussian.data = data
 print(gaussian.calculate_mean())
 print(gaussian.calculate_stdev(sample=True))
+gaussian_one = Gaussian(5, 2)
+gaussian_two = Gaussian(7, 3)
+gaussian_sum = gaussian_one + gaussian_two
+print(gaussian_sum)
+print(gaussian_sum.stdev)
+print(gaussian_sum.mean)
             
