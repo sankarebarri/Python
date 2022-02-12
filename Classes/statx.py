@@ -18,6 +18,10 @@ class Statx:
         Return: The mean of the data
         '''
         len_data = len(self.data)
+        if len_data == 0:
+            return 0
+        if len_data == 1:
+            return sum(self.data)
         if sample:
             len_data = len_data - 1
             return sum(self.data)/len_data
@@ -29,9 +33,32 @@ class Statx:
         '''
         self.data.sort()
         length = len(self.data)
+        if length == 0:
+            return 0
         if length%2 !=0:
             return self.data[length//2]
         return((self.data[length//2] + (self.data[length//2] - 1)) / 2)
+
+    def data_mode(self):
+        '''
+        Gives the mode of the data
+        Unimodal: If there is only one mode
+        Mutlimodal: If there is at least 2 modes
+        
+        Return:
+            
+        '''
+        count_mode = {}
+        for i in range(max(self.data)+1):
+            count_mode[i] = self.data.count(i)
+        max_value = max(count_mode.values())
+        modes = []
+        for key, value in count_mode.items():
+            if value == max_value:
+                modes.append(key)
+        if len(modes) == 1:
+            return f'Unimodal data {modes[0]} occurs {max_value} times'
+        return f'Multimodal data {modes} each occurs {max_value} times'
     
     def data_variance(self):
         pass
