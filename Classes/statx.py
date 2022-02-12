@@ -48,6 +48,10 @@ class Statx:
         Return:
             
         '''
+        if len(self.data) == 0:
+            return 0
+        if len(self.data) == 1:
+            return self.data[0]
         count_mode = {}
         for i in range(max(self.data)+1):
             count_mode[i] = self.data.count(i)
