@@ -1,3 +1,27 @@
+##########################################################################################
+
+
+def logged(func):
+    '''Prints out the name of a function with the arguments passed into it'''
+    def wrapper_logged(*args, **kwargs):
+        print(f"you called {func.__name__}{args}")
+        print(f'it returned {func(*args)}')
+        return func(*args)
+        
+    return wrapper_logged
+
+
+@logged
+def bizzare_function(*args):
+    return 3 + len(args)
+
+print(bizzare_function(4,4,4))
+##########################################################################################
+
+
+
+##########################################################################################
+
 import random
 PLUGINS = dict()
 def register(func):
@@ -27,3 +51,4 @@ def greeter_name(name):
     return greeter_func(name)
 
 print(greeter_name('Barri'))
+##########################################################################################
